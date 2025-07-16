@@ -436,69 +436,9 @@ Authorization: Bearer <admin_token>
 
 ---
 
-## 📝 Usage Examples
-
-### Example 1: Complete Authentication Flow
-
-```bash
-# 1. Register
-curl -X POST "http://localhost:8000/api/v1/auth/register" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "username": "john_doe",
-    "email": "john@students.unnes.ac.id",
-    "password": "securepassword"
-  }'
-
-# 2. Login
-curl -X POST "http://localhost:8000/api/v1/auth/token" \
-  -H "Content-Type: application/x-www-form-urlencoded" \
-  -d "username=john_doe&password=securepassword"
-
-# Response:
-# {
-#   "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...",
-#   "token_type": "bearer",
-#   "role": "user"
-# }
-```
-
-### Example 2: Upload and Chat with Documents
-
-```bash
-# 1. Upload document
-curl -X POST "http://localhost:8000/api/v1/documents/upload" \
-  -H "Authorization: Bearer YOUR_TOKEN" \
-  -F "files=@document.pdf"
-
-# 2. Send chat message
-curl -X POST "http://localhost:8000/api/v1/chat" \
-  -H "Authorization: Bearer YOUR_TOKEN" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "session_id": "session_123",
-    "message": "Apa isi dari dokumen ini?",
-    "document_ids": []
-  }'
-```
-
-### Example 3: Admin Operations
-
-```bash
-# Get system statistics
-curl -X GET "http://localhost:8000/api/v1/admin/stats" \
-  -H "Authorization: Bearer ADMIN_TOKEN"
-
-# Get all users
-curl -X GET "http://localhost:8000/api/v1/admin/users" \
-  -H "Authorization: Bearer ADMIN_TOKEN"
-```
-
----
-
 ## 🔒 Security Considerations
 
-1. **JWT Tokens**: Tokens memiliki expiration time
+1. **JWT Tokens**: Tokens memiliki expiration time 30 ment
 2. **Email Validation**: Hanya email domain UNNES yang diterima
 3. **File Upload**: Validasi format file dan ukuran
 4. **Role-based Access**: Admin endpoints hanya dapat diakses oleh admin
@@ -521,13 +461,3 @@ curl -X GET "http://localhost:8000/api/v1/admin/users" \
    - Main App: `http://localhost:8000/`
 
 ---
-
-## 📞 Support
-
-Untuk pertanyaan atau dukungan teknis, silakan hubungi tim pengembang UNNES Document Chat System.
-
----
-
-**Last Updated:** 2024  
-**Version:** 7.0.0  
-**Framework:** FastAPI + LangChain + Ollama
