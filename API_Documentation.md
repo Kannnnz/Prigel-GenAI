@@ -4,7 +4,7 @@
 
 UNNES Document Chat System adalah platform berbasis AI yang memungkinkan mahasiswa dan staf UNNES untuk mengunggah dokumen dan berinteraksi dengan dokumen tersebut menggunakan teknologi RAG (Retrieval-Augmented Generation) yang berjalan secara lokal menggunakan Ollama.
 
-**Base URL:** `http://localhost:8000`  
+**Base URL:** `http://127.0.0.1:8000`  
 **API Version:** v1  
 **API Prefix:** `/api/v1`
 
